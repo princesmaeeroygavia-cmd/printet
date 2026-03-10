@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Frozen Food Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Frozen Food Store</h1>
+  <p>Premium Quality Frozen Products</p>
+  <p>YUMMY
+    YUMMY KAAYU 
+    YUMMY SUPER SHET<P>
+</header>
+
+<div class="container">
+  <h2></h2>
+  <div class="menu" id="menu">
+    <!-- Example product -->
+    <div class="product" onclick="openProduct('Hotdog','1 pack 99 kg 20 pcs','$4.99',4.99,'hotdog.jpg')">
+    <img src="hotdog.jpg" alt="Hotdog">
+    <div class="product-name">Hotdog</div>
+</div>
+
+<div class="product" onclick="openProduct('Toceno Roll','1 kl','$2.99',2.99,'toceno_roll.jpg')">
+    <img src="toceno_roll.jpg" alt="Toceno Roll">
+    <div class="product-name">Toceno Roll</div>
+</div>
+
+<div class="product" onclick="openProduct('Cornbeef Roll','Tender corned beef wrapped in a soft roll.Perfect for a quick and satisfying meal anytime.','$6.99',6.99,'cornbeef_roll.jpg')">
+    <img src="cornbeef_roll.jpg" alt="Cornbeef Roll">
+    <div class="product-name">Cornbeef Roll</div>
+</div>
+
+<div class="product" onclick="openProduct('Pork Toceno','Premium pork tocino marinatated in special spices.Sweet, savory and incredibly delicious when cooked.','$7.49',7.49,'pork_toceno.jpg')">
+    <img src="pork_toceno.jpg" alt="Pork Toceno">
+    <div class="product-name">Pork Toceno</div>
+</div>
+
+<div class="product" onclick="openProduct('Whole Chicken','Boneless chicken breast fillets.Lean protein source, perfect for grilling, baking, or stir-fying.','$8.99',8.99,'chicken.jpg')">
+    <img src="chicken.jpg" alt="Whole Chicken">
+    <div class="product-name">Whole Chicken</div>
+</div>
+
+<div class="product" onclick="openProduct('Longanisa','Sweet and savory Filipino sausage made from pork.Perfect for breakfast or any meal.','$5.99',5.99,'longganisa.jpg')">
+    <img src="longganisa.jpg" alt="Longanisa">
+    <div class="product-name">Longanisa</div>
+</div>
+
+<div class="product" onclick="openProduct('Soriso','Prepium quality pork sausage with special herbs and spices. Great for grilling.','$4.49',4.49,'soriso.jpg')">
+    <img src="soriso.jpg" alt="Soriso">
+    <div class="product-name">Soriso</div>
+</div>
+
+<div class="product" onclick="openProduct('Oil','Cooking Oil','$4.49',4.49,'oil.jpg')">
+    <img src="oil.jpg" alt="Oil">
+    <div class="product-name">Oil</div>
+</div>
+
+<div class="product" onclick="openProduct('Rawrice','Java Rice','$4.49',4.49,'rawrice.jpg')">
+    <img src="rawrice.jpg" alt="Rawrice">
+    <div class="product-name">Rawrice (Java Rice)</div>
+</div>
+
+<div class="product" onclick="openProduct('Dried Fish','Dried Fish','$4.49',4.49,'dry_fish.jpg')">
+    <img src="dry_fish.jpg" alt="Dried Fish">
+    <div class="product-name">Dried Fish</div>
+</div>
+
+<div class="product" onclick="openProduct('Sugar','Refined Sugar','$4.49',4.49,'brown_sugar.jpg')">
+    <img src="brown_sugar.jpg" alt="Sugar">
+    <div class="product-name">Sugar</div>
+</div>
+
+<div class="product" onclick="openProduct('Salt','Cooking Salt','$4.49',4.49,'salt.jpg')">
+    <img src="salt.jpg" alt="Salt">
+    <div class="product-name">Salt</div>
+    </div>
+  </div>
+
+  <div class="cart">
+    <h2>Order Summary</h2>
+    <ul id="cartList"></ul>
+  <div class="cart-footer">
+    <h3 id="total">Total: $0</h3>
+    <button class="buy" onclick="checkout()">Buy</button>
+  </div>
+</div>
+
+<!-- PRODUCT POPUP -->
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <button class="close" onclick="closeModal()">✖</button>
+
+    <img id="pImage" src="" alt="Product Image">
+    <h2 id="pName"></h2>
+    <p id="pDesc"></p>
+    <h3 id="pPrice"></h3>
+
+    <div class="qty">
+      <button onclick="minus()">-</button>
+      <span id="quantity">1</span>
+      <button onclick="plus()">+</button>
+    </div>
+
+    <button class="add-order" onclick="addOrder()">Add to Order</button>
+    <button class="buy-now" onclick="buyNow()">Buy Now</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
