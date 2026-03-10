@@ -1,0 +1,275 @@
+body {
+  font-family: serif;
+  background: url('photo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: url('photo.jpg') no-repeat center center fixed;
+  color: rgb(0, 0, 0);
+  padding: 1px;
+  text-align: center;
+  background-size: cover;
+  z-index: 1000; /* header stays above normal content */
+}
+
+/* Add spacing so content doesn't overlap with fixed header and Container with side margins */
+.container {
+  padding: 20px;
+  margin-top: 120px;     /* space for fixed header */
+  margin: 120px auto 0 auto;   /* space for header + center horizontally */
+  max-width: 1000px;           /* keeps content narrower, adds margin on sides */
+}
+
+/* Product grid */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;   /* more space between products */
+}
+
+.product {
+  padding: 15px;
+  border-radius: 15px;       /* square edges */
+  text-align: center;
+  cursor: pointer;
+  box-shadow:none;
+  border: 2px solid rgb(33, 34, 32);
+}
+
+/* Product image */
+.product img {
+  width: 100%;
+  height: 350px;          /* fixed height for square look */
+  object-fit: cover;
+  border-radius: 15px;       /* sharp edges */
+  margin-bottom: 10px;
+  margin-top: 1px;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.product-name {
+  background: url('brush.png') no-repeat center center;
+  background-size: 150% 150%;   /* stretch ang brush stroke para mo‑cover sa text area */
+  display: inline-block;        /* background mo‑wrap sa text */
+  padding: 15px 30px;           /* mas dako nga space aron ma‑igo ang brush stroke */
+  font-size: 20px;              /* mas dako nga text */
+  font-weight: bold;
+  text-align: center;           /* center ang text sulod */
+  color: black;                 /* text color visible sa yellow */
+}
+
+.product:hover {
+  background: rgba(74, 74, 77, 0.582);
+}
+
+.product:hover img {
+  filter: brightness(0.7);   /* darken image para match sa hover */
+  transition: 0.3s ease;     /* smooth effect */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* ✅ higher than header */
+}
+
+
+.modal-content {
+  background: white;
+  padding: 40px 25px 25px 25px; /* top right bottom left */
+  width: 320px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;   /* ✅ important para ma‑anchor ang X */
+}
+
+.modal-content img {
+  width: 100px;       /* gamay lang width */
+  height: auto;       /* automatic height */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* center the image */
+}
+
+/* Buy Now button sa modal */
+.buy-now {
+  background: rgb(255, 30, 0); /* bright red/orange */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.buy-now:hover {
+  background: rgb(175, 2, 2); /* darker red on hover */
+}
+
+/* General button reset */
+button {
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+/* Qty container (align minus, number, plus) */
+.qty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;    /* space above (away from price) */
+  margin-bottom: 20px; /* space below (away from Add to Order) */
+}
+
+/* Qty buttons (minus/plus) style */
+.qty button {
+  background: none;   /* light gray */
+  color: black;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.qty button:hover {
+  background: #e0e0e0;   /* darker gray on hover */
+}
+
+/* Close button (X) */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;        /* ✅ upper left corner */
+  background: none;
+  color: rgba(31, 30, 30, 0.822);
+  border: none;
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.close:hover {
+  background: none;
+}
+
+/* Add to Order button */
+.add-order {
+  background: #00c41a;   /* bright green */
+  color: white;
+}
+.add-order:hover {
+  background: #009e15;   /* darker green */
+}
+
+/* Order summary items */
+.order-item {
+  display: flex;
+  justify-content: space-between; /* text right, cancel right */
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 5px 0;                /* extra breathing space */
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-img {
+ width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-name {
+  font-weight: bold;
+}
+
+.item-right {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+/* Cancel button */
+.order-item .cancel {
+  background: none;
+  color: black;
+  padding: 5px 12px;             /* uniform size */
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.774);
+  margin-left: 15px;             /* ✅ space so it doesn’t touch text */
+}
+
+.order-item .cancel:hover {
+  background: #e0e0e0 ;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 10px;
+}
+
+.qty-controls button {
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.774);
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.qty-controls button:hover {
+  background: #e0e0e0;
+}
+
+.cart-footer {
+  display: flex;
+  justify-content: flex-end; /* push to right side */
+  align-items: center;       /* tupong ang text ug button */
+  gap: 15px;                 /* gamay nga space sa tunga */
+  margin-top: 15px;
+}
+
+.cart-footer h3 {
+  margin: 0; /* tangtangon ang default margin sa h3 */
+}
+
+.cart-footer .buy {
+  background: rgb(236, 34, 7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.cart-footer .buy:hover {
+  background: rgb(211, 16, 16);
+}
